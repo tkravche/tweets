@@ -1,3 +1,5 @@
+import UserCard from './UserCard/Usercard';
+
 export const App = () => {
   return (
     <div
@@ -10,7 +12,7 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      Tweet homework template
+      <UserCard />
     </div>
   );
 };
