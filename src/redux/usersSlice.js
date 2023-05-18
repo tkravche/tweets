@@ -10,17 +10,24 @@ const initialState = {
 export const usersSlice = createSlice({
   name: 'users',
   initialState,
+  reducers: {
+    follow: (state, { payload }) => {
+      const selected = state.users.find(user => user.id === payload);
+      selected.isFollowing = true;
+      selected.followers++;
+    },
+    unfollow: (state, { payload }) => {
+      const selected = state.users.find(user => user.id === payload);
+      selected.isFollowing = false;
+      selected.followers--;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchUsers.fulfilled, (state, { payload }) => {
         state.users = payload;
+        state.isLoading = false;
       })
-      .addMatcher(
-        action => action.type.endsWith('/fulfilled'),
-        state => {
-          state.isLoading = false;
-        }
-      )
       .addMatcher(
         action => action.type.endsWith('/pending'),
         state => {
@@ -39,6 +46,8 @@ export const usersSlice = createSlice({
 });
 
 export default usersSlice.reducer;
+export const follow = usersSlice.actions.follow;
+export const unfollow = usersSlice.actions.unfollow;
 
 // {[fetchUsers.pending]: state => {
 //     state.isLoading = true;

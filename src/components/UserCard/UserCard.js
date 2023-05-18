@@ -1,5 +1,4 @@
-import { useState } from 'react';
-
+// import { useState } from 'react';
 import picture from '../../img/picture.png';
 import logo from '../../img/logo.png';
 import rectangle from '../../img/rectangle.svg';
@@ -16,11 +15,14 @@ import {
   StyledFollowers,
   StyledButton,
 } from './UserCard.styled';
+import { useDispatch } from 'react-redux';
+import { follow, unfollow } from 'redux/usersSlice';
 
 const UserCard = ({ user }) => {
-  const [isFollowed, setIsFollowed] = useState(null);
-  const [followers, setFollowers] = useState(user.followers);
-  
+  // const [isFollowed, setIsFollowed] = useState(null);
+  // const [followers, setFollowers] = useState(user.followers);
+  const dispatch = useDispatch();
+
   return (
     <StyledWrapper>
       <StyledLogo src={logo} alt="GoIT logo" />
@@ -35,26 +37,19 @@ const UserCard = ({ user }) => {
         <StyledAvatar src={user.avatar} alt={user.user} width="72" />
         <StyledEllipse src={ellipse} alt="ellipse" />
         <StyledTweets>{user.tweets} tweets</StyledTweets>
-        <StyledFollowers>{followers.toLocaleString()} followers</StyledFollowers>
-        {isFollowed ? (
+        <StyledFollowers>{user.followers.toLocaleString()} followers</StyledFollowers>
+        {user.isFollowing ? (
           <StyledButton
-            onClick={() => {
-              setIsFollowed(!isFollowed);
-              setFollowers(followers - 1);
-            }}
+            onClick={() => dispatch(unfollow(user.id))}
             type="button"
-            isFollowed={isFollowed}
-          >
+            isFollowed={user.isFollowing}>
             Following
           </StyledButton>
         ) : (
           <StyledButton
-            onClick={() => {
-              setIsFollowed(!isFollowed);
-              setFollowers(followers + 1);
-            }}
+            onClick={() => dispatch(follow(user.id))}
             type="button"
-            isFollowed={isFollowed}
+            isFollowed={user.isFollowing}
           >
             Follow
           </StyledButton>

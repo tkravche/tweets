@@ -12,13 +12,13 @@ export const App = () => {
   // const error = useSelector(selectError);
   const users = useSelector(selectUsers);
   const tweetsPerRow = 3;
-  const usersNumber = users.users.length;
+  const usersNumber = users.length;
   const [next, setNext] = useState(tweetsPerRow);
-  const usersToShow = users.users.slice(0, next);
+  const usersToShow = users.slice(0, next);
 
   useEffect(() => {
-    dispatch(fetchUsers());
-  }, [dispatch]);
+    if (!usersToShow || usersToShow.length === 0) dispatch(fetchUsers());
+  }, [dispatch, usersToShow]);
 
   const handleMoreTweets = () => {
     setNext(next + tweetsPerRow);
