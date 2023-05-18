@@ -1,0 +1,22 @@
+/* variables */
+
+:root {
+  /* fonts */
+  --main-font: 'Monserrat', sans-serif;
+
+  /* card background */
+  --main-bc: linear-gradient(
+    114.99deg,
+    #471ca9 -0.99%,
+    #5736a3 54.28%,
+    #4b2a99 78.99%
+  );
+
+  /* buttons */
+  --btn-text: #373737;
+  --btn-bc-follow: #ebd8ff; /* also text and lines color*/
+  --btn-bc-following: #5cd3a8;
+
+  /* animation */
+  --animation: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
