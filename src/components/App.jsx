@@ -9,7 +9,7 @@ import { StyledMoreButton } from 'App.styled';
 export const App = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectLoading);
-  const error = useSelector(selectError);
+  // const error = useSelector(selectError);
   const users = useSelector(selectUsers);
   const tweetsPerRow = 3;
   const usersNumber = users.users.length;
