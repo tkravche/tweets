@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import picture from '../../img/picture.png';
 import logo from '../../img/logo.png';
 import rectangle from '../../img/rectangle.svg';
@@ -19,8 +18,6 @@ import { useDispatch } from 'react-redux';
 import { follow, unfollow } from 'redux/usersSlice';
 
 const UserCard = ({ user }) => {
-  // const [isFollowed, setIsFollowed] = useState(null);
-  // const [followers, setFollowers] = useState(user.followers);
   const dispatch = useDispatch();
 
   return (
