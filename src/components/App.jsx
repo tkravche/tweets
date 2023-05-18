@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { fetchUsers } from 'redux/usersOperations';
 import UserList from './UserList/UserList';
-import { selectError, selectLoading, selectUsers } from 'redux/usersSelectors';
+import { selectLoading, selectUsers } from 'redux/usersSelectors';
 import { StyledMoreButton } from 'App.styled';
 
 export const App = () => {
