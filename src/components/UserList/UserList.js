@@ -8,13 +8,8 @@ const UserList = ({usersToShow}) => {
   let usersFiltered = usersToShow;
   console.log(usersFiltered)
   console.log(filterValue)
-  // if(filterValue === 'follow')
-  // {usersFiltered = usersToShow.filter(user => user.isFollowing === false)}
-  // else if (filterValue === 'following')
-  // {usersFiltered = usersToShow.filter(user => user.isFollowing === true)}
-  // if(filterValue === 'all') return usersFiltered;
-  // console.log(usersFiltered)
-  return (
+ 
+  return (   
     <StyledUserList>
       {usersToShow && (
         <>

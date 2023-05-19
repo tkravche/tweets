@@ -22,9 +22,9 @@ export const usersSlice = createSlice({
       selected.isFollowing = false;
       selected.followers--;
     },
-    setFilter: (state, {payload})=> {
+    setFilter: (state, { payload }) => {
       state.filter = payload;
-    }
+    },
   },
   extraReducers: builder => {
     builder
@@ -53,6 +53,7 @@ export default usersSlice.reducer;
 export const follow = usersSlice.actions.follow;
 export const unfollow = usersSlice.actions.unfollow;
 export const setFilter = usersSlice.actions.setFilter;
+
 // {[fetchUsers.pending]: state => {
 //     state.isLoading = true;
 //   },
